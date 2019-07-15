@@ -1,0 +1,5 @@
+/* pages/Submissions/picture/picture.wxss */
+
+.addpadding {
+  padding: 30rpx;
+}

@@ -1,0 +1,39 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.options {
+  padding-top: 75rpx;
+  width: 100%;
+}
+
+.butt {
+  width: 100%;
+  padding: 10rpx;
+}
+
+.words {
+  float: left;
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.next {
+  float: right;
+  font-size: 30rpx;
+  color: #b2b2b2;
+}

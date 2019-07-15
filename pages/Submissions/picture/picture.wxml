@@ -1,0 +1,18 @@
+<!--pages/Submissions/picture/picture.wxml-->
+<view class="container">
+  <text class="buttonPadding">Submit a picture to complete the task.</text>
+  <button type="primary" bindtap="findPic">Choose Picture</button>
+  <view wx:if="{{picLoaded == true}}">
+    <view wx:for="{{picFilePaths}}">
+      <image src="{{picFilePaths[index]}}"></image>
+    </view>
+  </view>
+  <view wx:if="{{tempFilePaths.length!=0}}">
+    <form bindsubmit="bindFormSubmit">
+      <button type="primary" form-type="submit" loading="{{loading}}">Send</button>
+    </form>
+  </view>
+  <view wx:else>
+    <button type="primary" disabled="true">Send</button>
+  </view>
+</view>

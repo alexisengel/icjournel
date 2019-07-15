@@ -1,0 +1,27 @@
+/* pages/tasks/tasks.wxss */
+.tasks {
+  padding-top: 10rpx;
+  width: 95%;
+}
+
+.logo {
+  height: 110rpx;
+  padding-bottom: 30rpx;
+}
+
+.type {
+  font-size: 25rpx;
+  color: #b2b2b2;
+  float: left;
+}
+
+.task {
+  font-size: 30rpx;
+  color: #353535;
+}
+
+.comp {
+  font-size: 25rpx;
+  color: #09bb07;
+  float: right;
+}

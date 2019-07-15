@@ -1,0 +1,5 @@
+/* pages/Submissions/blog/blog.wxss */
+
+.blogtext {
+  padding: 30rpx;
+}

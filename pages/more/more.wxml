@@ -1,0 +1,9 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <view class="options">
+    <button class="butt" bindtap="moveTo" id="intro"><text class="words">Intro</text><text class="next">></text></button>
+    <button class="butt" bindtap="moveTo" id="about"><text class="words">About</text><text class="next">></text></button>
+    <button class="butt" bindtap="moveTo" id="faqs"><text class="words">FAQs</text><text class="next">></text></button>
+    <button class="butt" bindtap="moveTo" id="contact"><text class="words">Contact Us</text><text class="next">></text></button>
+  </view>
+</view>

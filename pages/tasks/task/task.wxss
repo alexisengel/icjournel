@@ -1,0 +1,10 @@
+/* pages/tasks/task/task.wxss */
+
+.layout{
+  padding: 10rpx;
+  width: 95%;
+}
+
+.typeText{
+  color: #353535;
+}

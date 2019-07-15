@@ -1,0 +1,13 @@
+<!--pages/Submissions/video/video.wxml-->
+<view class="container">
+  <text>Submit a video to complete the task.</text>
+  <button type="primary" bindtap="findVideo">Choose Video</button>
+  <view wx:if="{{tempFilePath!=''}}">
+    <form bindsubmit="bindFormSubmit">
+      <button type="primary" form-type="submit" loading="{{loading}}">Send</button>
+    </form>
+  </view>
+  <view wx:else>
+    <button type="primary" disabled="true">Send</button>
+  </view>
+</view>

@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/tasks/tasks",
+    "pages/profile/profile",
+    "pages/logs/logs",
+    "pages/more/more",
+    "pages/Submissions/picture/picture",
+    "pages/Submissions/video/video",
+    "pages/Submissions/blog/blog",
+    "pages/Submissions/survey/survey",
+    "pages/test/test",
+    "pages/profile/past/past",
+    "pages/profile/compensation/compensation",
+    "pages/more/intro/intro",
+    "pages/more/about/about",
+    "pages/more/faqs/faqs",
+    "pages/more/contact/contact",
+    "pages/tasks/task/task"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E0E0E0",
+    "navigationBarBackgroundColor": "#353535",
+    "navigationBarTitleText": "蕴机日记",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#F8F8F8",
+    "borderStyle": "black",
+    "selectedColor": "#09BB07",
+    "color": "#353535",
+    "list": [
+      {
+        "pagePath": "pages/tasks/tasks",
+        "text": "Tasks",
+        "iconPath": "/images/tasks-black.png",
+        "selectedIconPath": "/images/tasks-selected.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "Profile",
+        "iconPath": "/images/profile-icon.png",
+        "selectedIconPath": "/images/profile-icon-selected.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "More",
+        "iconPath": "/images/more-icon.png",
+        "selectedIconPath": "/images/more-icon-selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
