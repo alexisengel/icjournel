@@ -17,7 +17,13 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(22, res)
+        const code = res.code
+        wx.request({
+          url: 'http://localhost:3000/login',
+          method: 'post',
+          data: {code: code}
+        })
       }
     })
     // 获取用户信息

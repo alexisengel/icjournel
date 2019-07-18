@@ -36,7 +36,6 @@ Page({
   bindFormSubmit: function (e) {
     console.log(this)
     this.testFunct(this.data.tempFilePaths)
-    var realPaths = []
     this.setData({
       loading: !this.data.loading
     })
@@ -65,9 +64,6 @@ Page({
       })  
   },
 
-  whatTask: function () {
-
-  },
 
 
   /**

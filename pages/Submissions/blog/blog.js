@@ -10,6 +10,21 @@ Page({
   },
 
   bindFormSubmit: function (e) {
+    const page = this
+    const content = e.detail.value.content;
+    const userId = 10;
+    const dataset = {
+      content: content,
+      task_id: page.data.taskId,
+      person_id: userId
+    }
+    console.log(dataset)
+    console.log(e)
+    wx.request({
+      url: 'http://localhost:3000/datasets',
+      method: 'post',
+      data: dataset
+    })
     this.setData({
       loading: !this.data.loading
     })
@@ -18,12 +33,19 @@ Page({
       icon: "loading",
       duration: 1500
     })
+    wx.navigateBack({
+      
+    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      taskId: options.taskId
+    })
 
   },
 

@@ -2,8 +2,6 @@
 
 Page({
   data: {
-    tasks: [{ task: "What type of speaker", type: "picture", comp: 20 }, { task: "Car survey", type: "survey", comp: 40 }, { task: "Show us your pets", type: "video", comp: 30 }, { task: "How was your day", type: "blog", comp: 30 }, { task: "Daily commute", type: "video", comp: 40 }, { task: "Food survey", type: "survey", comp: 40 }, { task: "Tell us about your job", type: "blog", comp: 30 }, { task: "Someone intriguing", type: "picture", comp: 30 }],
-    types: [{ type: "picture", index: 0 }, { type: "survey", index: 1 }, { type: "video", index: 2 }, { type: "blog", index: 3}],
     count: 0,
     loading: false
     
@@ -17,9 +15,12 @@ Page({
 
   moveTask: function(event) {
     console.log(event)
-    var type = this.data.tasks[event.target.id].type
+    var type = this.data.tasks[event.target.id].category
+    var id = event.currentTarget.dataset.taskid
+    console.log(id)
     if (type != "survey") {
-      var typeUrl = '/pages/Submissions/' + type + '/' + type
+      var typeUrl = '/pages/Submissions/' + type + '/' + type + "?taskId=" + id
+      console.log(typeUrl)
       wx.navigateTo({
         url: typeUrl
       })
@@ -39,7 +40,19 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const page = this;
     console.log(Date.now());
+    wx.request({
+      url: 'http://localhost:3000/tasks.json',
+      method: 'get',
+    success(res) {
+      console.log(res)
+      console.log(this)
+      page.setData({
+        tasks: res.data
+      })
+    }
+    });
     console.log("Tasks page has loaded");
 
   },

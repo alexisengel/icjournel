@@ -6,7 +6,6 @@ Page({
    */
   data: {
     tempFilePath: '',
-    vidFilePath: '',
     loading: false
   },
 
@@ -25,20 +24,11 @@ Page({
   },
 
   bindFormSubmit: function (e) {
+    this.testFunct(this.data.tempFilePath)
     this.setData({
       loading: !this.data.loading
     })
     var myThis = this
-    wx.saveFile({
-      tempFilePath: myThis.data.tempFilePath,
-      success: function (res) {
-        var savedFilePath = res.savedFilePath
-        console.log(savedFilePath)
-        myThis.setData({
-          vidFilePath: savedFilePath
-        })
-      }
-    })
     wx.showToast({
       title: "Sending....",
       icon: "loading",
@@ -46,6 +36,21 @@ Page({
     })
     wx:wx.navigateBack({
       delta: 1,
+    })
+  },
+
+  testFunct: function (tempFilePath) {
+    return new Promise((resolve, reject) => {
+      new AV.File('file-name', {
+        blob: {
+          uri: tempFilePath,
+        },
+      }).save()
+        .then(file => resolve(file.url()))
+        .catch(e => reject(e));
+    })
+    this.setData({
+      loading: !this.data.loading
     })
   },
 

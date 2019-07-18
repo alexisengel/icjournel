@@ -1,7 +1,7 @@
 <!--pages/Submissions/blog/blog.wxml-->
 <view class="container">
   <text>Submit a blog post to complete the task.</text>
-  <form bindsubmit="submitBlog">
+  <form bindsubmit="bindFormSubmit">
     <textarea class="blogtext" name="content" placeholder="Write Stuff...."></textarea>
     <button form-type="submit" type="primary" loading="{{loading}}">Submit</button>
   </form>
