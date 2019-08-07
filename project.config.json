@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx76a883c4e3a20bfb",
-	"projectname": "miniprogram-alexis-test",
+	"projectname": "icjournal",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -48,12 +48,41 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
 					"name": "Test page",
 					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "Picture Load",
+					"pathName": "pages/Submissions/picture/picture",
+					"query": "taskId=11",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Survey Page",
+					"pathName": "pages/survey/survey",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Tasks",
+					"pathName": "pages/tasks/tasks",
+					"query": "taskId=11",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Surveys",
+					"pathName": "pages/survey/surveyList",
+					"query": "taskId=11",
 					"scene": null
 				}
 			]

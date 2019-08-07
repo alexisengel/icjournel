@@ -1,7 +1,7 @@
 /* pages/tasks/tasks.wxss */
 .tasks {
   padding-top: 10rpx;
-  width: 95%;
+  width: 95vw;
 }
 
 .logo {
@@ -24,4 +24,12 @@
   font-size: 25rpx;
   color: #09bb07;
   float: right;
+}
+
+.bye {
+  float: center;
+  font-size: 40rpx;
+  color: #353535;
+  text-align: center;
+  width: 100%;
 }

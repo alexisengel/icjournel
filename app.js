@@ -8,24 +8,57 @@ AV.init({
 
 App({
   onLaunch: function () {
+    const host = this.globalData.host;
+    const page = this;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     console.log("App is launched");
 
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(22, res)
-        const code = res.code
-        wx.request({
-          url: 'http://localhost:3000/login',
-          method: 'post',
-          data: {code: code}
-        })
+      var value = wx.getStorageSync("userId")
+      console.log(value === "")
+      if (value !== "") {
+        console.log(8888, "username has been saved", value)
+        page.globalData.userId = value,
+        page.globalData.comp = 0
       }
-    })
+      else {
+      wx.login({
+        success: res => {
+          console.log(3456, "logging in")
+          console.log(22, res)
+          const code = res.code
+          
+          wx.request({
+            url: `${host}login`,
+            method: 'post',
+            data: { code: code },
+            success(res) {
+              console.log(25, res)
+              const userId = res.data.userId
+              const comp = res.data.comp
+              console.log(page)
+              wx.setStorage({
+                key: "userId",
+                data: userId
+              })
+              page.globalData.userId = userId
+              page.globalData.comp = comp
+              if (res.data.newUser == true) {
+                wx.navigateTo({
+                  url: '/pages/more/intro/intro',
+                })
+              }
+            }
+          })
+        }
+      })
+      }
+
+
+    // 登录
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -51,7 +84,8 @@ App({
     console.log("App is shown");
   },
   globalData: {
-    currentTask: '',
-    userInfo: null
+    userInfo: null,
+    //host: 'https://calm-hamlet-12139.herokuapp.com/'
+    host: 'http://localhost:3000/'
   }
 })

@@ -1,13 +1,17 @@
 <!--pages/Submissions/picture/picture.wxml-->
-<view class="container">
-  <text class="buttonPadding">Submit a picture to complete the task.</text>
-  <button type="primary" bindtap="findPic">Choose Picture</button>
-  <view wx:if="{{picLoaded == true}}">
-    <view wx:for="{{picFilePaths}}">
-      <image src="{{picFilePaths[index]}}"></image>
+<view class="fullwidthcontainer">
+  <text class="buttonPadding">{{name}}</text>
+  <text class="type">Picture</text>
+  <view class="weui-uploader__input-box" bindtap="findPic"></view>
+  <view class="cent" wx:if="{{tempFilePaths.length!=0}}">
+    <view class="weui-grids">
+      <block wx:for="{{lcpaths}}" wx:key="*this">
+        <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="../images/icon_tabbar.png" />
+          <view class="weui-grid__label">Grid</view>
+        </navigator>
+      </block>
     </view>
-  </view>
-  <view wx:if="{{tempFilePaths.length!=0}}">
     <form bindsubmit="bindFormSubmit">
       <button type="primary" form-type="submit" loading="{{loading}}">Send</button>
     </form>

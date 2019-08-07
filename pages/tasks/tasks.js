@@ -1,4 +1,6 @@
 // pages/tasks/tasks.js
+const app = getApp();
+const newUserId = app.globalData.userId;
 
 Page({
   data: {
@@ -17,9 +19,11 @@ Page({
     console.log(event)
     var type = this.data.tasks[event.target.id].category
     var id = event.currentTarget.dataset.taskid
+    var comp = event.currentTarget.dataset.comp
+    var name = event.currentTarget.dataset.name
     console.log(id)
     if (type != "survey") {
-      var typeUrl = '/pages/Submissions/' + type + '/' + type + "?taskId=" + id
+      var typeUrl = '/pages/Submissions/' + type + '/' + type + "?taskId=" + id + "&comp=" + comp + "&name=" + name
       console.log(typeUrl)
       wx.navigateTo({
         url: typeUrl
@@ -40,20 +44,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const page = this;
-    console.log(Date.now());
-    wx.request({
-      url: 'http://localhost:3000/tasks.json',
-      method: 'get',
-    success(res) {
-      console.log(res)
-      console.log(this)
-      page.setData({
-        tasks: res.data
-      })
-    }
-    });
-    console.log("Tasks page has loaded");
+    
 
   },
 
@@ -72,6 +63,25 @@ Page({
   onShow: function () {
     console.log(Date.now());
     console.log("Tasks page is shown");
+    const host = app.globalData.host;
+    const page = this;
+    console.log(Date.now());
+    const dataG = app.globalData;
+    console.log(dataG)
+    const userId = dataG.userId;
+    console.log(22, userId)
+    wx.request({
+      url: `${host}tasks.json?user_id=${userId}`,
+      method: 'get',
+      success(res) {
+        console.log(res)
+        console.log(this)
+        page.setData({
+          tasks: res.data
+        })
+      }
+    });
+    console.log("Tasks page has loaded");
 
   },
 
@@ -95,6 +105,7 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function () {
+    
 
   },
 

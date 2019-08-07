@@ -1,0 +1,15 @@
+<!--pages/survey/survey.wxml-->
+<view class="container">
+  <text class="title">{{survey.name}}</text>
+  <scroll-view class="question" wx:for="{{survey.questions}}" id="{{index}}">
+    <label class="weui-cell weui-check__label">{{item.name}}</label>
+    <radio-group class="radiogg" bindchange="radioChange" id="{{item.id}}">
+      <label class="radio" wx:for="{{item.answers}}" id="{{index}}">
+      <radio value="{{item.tag_id}}" checked="{{item.checked}}"/>{{item.name}}
+    </label>
+    </radio-group>
+  </scroll-view>
+  <button type="primary" bindtap="submit">Submit</button>
+</view>
+
+

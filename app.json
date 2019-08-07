@@ -7,7 +7,6 @@
     "pages/Submissions/picture/picture",
     "pages/Submissions/video/video",
     "pages/Submissions/blog/blog",
-    "pages/Submissions/survey/survey",
     "pages/test/test",
     "pages/profile/past/past",
     "pages/profile/compensation/compensation",
@@ -15,7 +14,9 @@
     "pages/more/about/about",
     "pages/more/faqs/faqs",
     "pages/more/contact/contact",
-    "pages/tasks/task/task"
+    "pages/tasks/task/task",
+    "pages/survey/survey",
+    "pages/survey/surveyList"
   ],
   "window": {
     "backgroundTextStyle": "dark",

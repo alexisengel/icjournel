@@ -1,13 +1,18 @@
 <!--pages/tasks/tasks.wxml-->
 <view class="container">
   <image class="logo" bindtap="bindViewTap" src="/images/InnerChapter_white.jpg"></image>
-  <scroll-view class="tasks" wx:for="{{tasks}}" id="{{index}}">
-    <button bindtap="moveTask" id="{{index}}" data-taskId="{{item.id}}"> 
-    <text class="type">{{item.type}} </text>
-    <text class="task"> {{item.name}} </text>
-    <text class="comp"> {{item.comp}}元</text>
-    </button>
-  </scroll-view>
+  <view wx:if="{{tasks.length == 0}}" class="bye">
+    <text>No More Tasks Today. Come Back Tomorrow To Check For More</text>
+  </view>
+  <view wx:else>
+    <scroll-view class="tasks" wx:for="{{tasks}}" id="{{index}}">
+      <button bindtap="moveTask" id="{{index}}" data-taskId="{{item.id}}" data-comp="{{item.comp}}" data-name="{{item.name}}"> 
+      <text class="type">{{item.category}} </text>
+      <text class="task"> {{item.name}} </text>
+      <text class="comp"> {{item.comp}}元</text>
+      </button>
+    </scroll-view>
+  </view>
   
 </view>
 

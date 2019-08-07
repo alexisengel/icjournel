@@ -1,0 +1,26 @@
+/* pages/survey/survey.wxss */
+
+.title {
+  font-size: 40rpx;
+  color: #353535;
+  width: 100%;
+  text-align: center;
+}
+
+.radiogg {
+  display: block;
+  font-size: 27rpx;
+  text-align: center;
+  padding: 25rpx;
+  color: #353535;
+}
+
+.question {
+  color: #353535;
+  padding-bottom: 20rpx;
+}
+
+.radio {
+  padding: 30rpx;
+}
+

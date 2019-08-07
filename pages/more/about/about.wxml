@@ -1,2 +1,29 @@
-<!--pages/more/about/about.wxml-->
-<text>I need to ask about this</text>
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">关于我们</view>
+        <view class="page__desc">文章</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">大标题</view>
+            <view class="weui-article__section">
+                <view class="weui-article__title">章标题</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.1 节标题</view>
+                    <view class="weui-article__p">
+                        关于我们。Inner Chapter是一家成立于2017年的创想热坊。我们业务横跨文化洞察至商业IP孵化。我们是策略、创新和创意合伙人。我们与具有眼界的初创、企业、和跨国公司合作。我们被委任提供专业咨询，既可按项目服务，也可整合于组织内部提供嵌入咨询服务。
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.2 节标题</view>
+                    <view class="weui-article__p">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

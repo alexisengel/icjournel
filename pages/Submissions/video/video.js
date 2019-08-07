@@ -1,4 +1,6 @@
 // pages/Submissions/video/video.js
+var AV = require('/../../../utils/av-weapp-min.js')
+const app = getApp();
 Page({
 
   /**
@@ -40,13 +42,27 @@ Page({
   },
 
   testFunct: function (tempFilePath) {
+    const host = app.globalData.host;
+    const userId = app.globalData.userId;
+    const page = this;
     return new Promise((resolve, reject) => {
       new AV.File('file-name', {
         blob: {
           uri: tempFilePath,
         },
       }).save()
-        .then(file => resolve(file.url()))
+        .then(function(file) {
+          let dataset = {
+            content: file.url(),
+            task_id: page.data.taskId,
+            user_id: userId
+          }
+          wx.request({
+            url: `${host}datasets`,
+            method: 'post',
+            data: dataset
+          })
+        })
         .catch(e => reject(e));
     })
     this.setData({
@@ -58,7 +74,11 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      taskId: options.taskId,
+      comp: options.comp,
+      name: options.name
+    })
   },
 
   /**

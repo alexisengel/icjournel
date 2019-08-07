@@ -1,7 +1,8 @@
 <!--pages/Submissions/video/video.wxml-->
-<view class="container">
-  <text>Submit a video to complete the task.</text>
-  <button type="primary" bindtap="findVideo">Choose Video</button>
+<view class="fullwidthcontainer">
+  <text>{{name}}</text>
+  <text class="type">Video</text>
+  <view class="weui-uploader__input-box" bindtap="findVideo"></view>
   <view wx:if="{{tempFilePath!=''}}">
     <form bindsubmit="bindFormSubmit">
       <button type="primary" form-type="submit" loading="{{loading}}">Send</button>

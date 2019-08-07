@@ -10,7 +10,7 @@
   <view class="options">
     <button class="butt" bindtap="bindViewTap"><text class="words">Current Tasks</text><text class="next">></text></button>
     <button class="butt"><text class="words">Past Tasks</text><text class="next">></text></button>
-    <button class="butt"><text class="words">Compensation</text><text class="next">></text></button>
+    <button class="butt" bindtap="toSurvey"><text class="words">Compensation           {{comp}}</text><text class="next">></text></button>
   </view>
 </view>
 

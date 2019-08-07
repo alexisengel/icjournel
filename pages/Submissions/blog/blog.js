@@ -1,4 +1,5 @@
 // pages/Submissions/blog/blog.js
+const app = getApp();
 Page({
 
   /**
@@ -11,17 +12,21 @@ Page({
 
   bindFormSubmit: function (e) {
     const page = this
+    const host = app.globalData.host
+    console.log(page)
     const content = e.detail.value.content;
-    const userId = 10;
+    const userId = app.globalData.userId;
+    const comp = app.globalData.comp + page.data.comp
+    console.log("comp = ", comp)
     const dataset = {
       content: content,
       task_id: page.data.taskId,
-      person_id: userId
+      user_id: userId
     }
     console.log(dataset)
     console.log(e)
     wx.request({
-      url: 'http://localhost:3000/datasets',
+      url: `${host}datasets`,
       method: 'post',
       data: dataset
     })
@@ -44,7 +49,10 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      taskId: options.taskId
+      taskId: options.taskId,
+      comp: options.comp,
+      name: options.name
+
     })
 
   },

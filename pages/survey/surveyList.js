@@ -1,8 +1,5 @@
-// pages/Submissions/survey/survey.js
-const AV = require('../../../utils/av-weapp-min.js');
-const Survey = require('../../../model/survey.js');
-
-var app = getApp()
+// pages/survey/surveyList.js
+const app = getApp();
 Page({
 
   /**
@@ -12,35 +9,36 @@ Page({
 
   },
 
-  bindFormSubmit: function (e) {
-    // Local storage
+  chooseSurvey: function (e) {
     console.log(e)
-    var review = e.detail.value.review
-    // ...
-
-    // Leancloud permissions
-    var acl = new AV.ACL();
-    acl.setPublicReadAccess(true);
-    acl.setPublicWriteAccess(true);
-
-    // Leancloud storage
-    setTimeout(function () {
-      new Survey({
-        review: review
-        // ...
-      }).setACL(acl).save().catch(console.error);
-
-      // Redirect user
-      wx.reLaunch({
-        url: '/pages/tasks/tasks'
-      });
-    }, 2000);
+    const survId = e.currentTarget.dataset.survey_id
+    wx.navigateTo({
+      url: `/pages/survey/survey?survey_id=${survId}`,
+    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const host = app.globalData.host;
+    const page = this;
+    console.log(Date.now());
+    const dataG = app.globalData;
+    console.log(dataG)
+    const userId = dataG.userId;
+    console.log(22, userId)
+    wx.request({
+      url: `${host}surveys?user_id=${userId}.json`,
+      method: 'get',
+      success(res) {
+        console.log(res)
+        console.log(this)
+        page.setData({
+          surveys: res.data
+        })
+      }
+    });
 
   },
 

@@ -1,5 +1,6 @@
 // pages/Submissions/picture/picture.js
 var AV = require('/../../../utils/av-weapp-min.js')
+const app = getApp();
 
 Page({
 
@@ -8,11 +9,10 @@ Page({
    */
   data: {
     tempFilePaths: [],
-    picFilePaths: [],
     loading: false,
     picLoaded: false,
-    picNameConverted: false
-
+    picNameConverted: false,
+    grids: [0, 1, 2, 3, 4, 5, 6, 7, 8]
   },
 
   findPic: function () {
@@ -34,7 +34,7 @@ Page({
   },
 
   bindFormSubmit: function (e) {
-    console.log(this)
+    console.log(1000, this)
     this.testFunct(this.data.tempFilePaths)
     this.setData({
       loading: !this.data.loading
@@ -44,24 +44,51 @@ Page({
       icon: "loading",
       duration: 1500
     })
+    wx.navigateBack({
+      delta: 1
+    })
   },
 
 
   testFunct: function (tempFilePaths) {
+    const host = app.globalData.host;
+    const page = this
+    var lcpaths = [];
+    const userId = app.globalData.userId;
     tempFilePaths.forEach((path) => {
-      return new Promise((resolve, reject) => {
-        new AV.File('file-name', {
+      const promise = new Promise((resolve, reject) => {
+        const link = new AV.File('file-name', {
           blob: {
             uri: path,
-          },
+          }, 
         }).save()
-          .then(file => resolve(file.url()))
+          .then(function(file)  {
+            lcpaths.push(file.url())
+            let dataset = {
+              content: file.url(),
+              task_id: page.data.taskId,
+              user_id: userId
+            }
+            wx.request({
+              url: `${host}datasets`,
+              method: 'post',
+              data: dataset,
+              success: function (res) {
+                console.log(22222, res)
+              },
+              fail: function (res) {
+                console.log(55555, res)
+              }
+            })
+          })
           .catch(e => reject(e));
       })
-    })  
+    })
+    console.log(lcpaths)  
     this.setData({
-        loading: !this.data.loading
-      })  
+      loading: !this.data.loading,
+      lcpaths: lcpaths
+    })  
   },
 
 
@@ -70,7 +97,11 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      taskId: options.taskId,
+      comp: options.comp,
+      name: options.name
+    })
   },
 
   /**
