@@ -9,6 +9,16 @@ Page({
 
   },
 
+  loadAgain: function (op){
+    onload(op)
+  },
+
+  skip: function () {
+    wx.switchTab({
+      url: '/pages/tasks/tasks',
+    })
+  },
+
   chooseSurvey: function (e) {
     console.log(e)
     const survId = e.currentTarget.dataset.survey_id
@@ -21,6 +31,21 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    
+
+  },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function () {
     const host = app.globalData.host;
     const page = this;
     console.log(Date.now());
@@ -39,21 +64,11 @@ Page({
         })
       }
     });
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
+    if (this.data.surveys == []) {
+      wx.switchTab({
+        url: '/pages/tasks/tasks',
+      })
+    } 
   },
 
   /**

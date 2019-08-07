@@ -1,1 +1,11 @@
 /* pages/survey/surveyList.wxss */
+
+.surveys {
+  padding-top: 10rpx;
+  width: 95vw;
+  color: #353535;
+}
+
+.skip {
+  padding-top: 20rpx;
+}

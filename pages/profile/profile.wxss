@@ -37,3 +37,9 @@
   font-size: 30rpx;
   color: #b2b2b2;
 }
+
+.comp {
+  float: right;
+  font-size: 30rpx;
+  color: #09bb07;
+}

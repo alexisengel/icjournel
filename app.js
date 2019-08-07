@@ -22,39 +22,48 @@ App({
         console.log(8888, "username has been saved", value)
         page.globalData.userId = value,
         page.globalData.comp = 0
+        wx.navigateTo({
+          url: '/pages/survey/surveyList'
+        })
       }
       else {
-      wx.login({
-        success: res => {
-          console.log(3456, "logging in")
-          console.log(22, res)
-          const code = res.code
+        page.globalData.loading = true;
+        wx.login({
+          success: res => {
+            console.log(3456, "logging in")
+            console.log(22, res)
+            const code = res.code
           
-          wx.request({
-            url: `${host}login`,
-            method: 'post',
-            data: { code: code },
-            success(res) {
-              console.log(25, res)
-              const userId = res.data.userId
-              const comp = res.data.comp
-              console.log(page)
-              wx.setStorage({
-                key: "userId",
-                data: userId
-              })
-              page.globalData.userId = userId
-              page.globalData.comp = comp
-              if (res.data.newUser == true) {
-                wx.navigateTo({
-                  url: '/pages/more/intro/intro',
+            wx.request({
+              url: `${host}login`,
+              method: 'post',
+              data: { code: code },
+              success(res) {
+                console.log(25, res)
+                const userId = res.data.userId
+                const comp = res.data.comp
+                console.log(page)
+                wx.setStorage({
+                  key: "userId",
+                  data: userId
                 })
+                wx.navigateTo({
+                  url: '/pages/survey/surveyList'
+                })
+                page.globalData.userId = userId
+                page.globalData.comp = comp
+                /**if (res.data.newUser == true) {
+                  wx.navigateTo({
+                    url: '/pages/more/intro/intro',
+                  })
+                }*/
               }
-            }
-          })
-        }
-      })
+            })
+          }
+        })
+      
       }
+
 
 
     // 登录
@@ -85,7 +94,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    //host: 'https://calm-hamlet-12139.herokuapp.com/'
-    host: 'http://localhost:3000/'
+    host: 'https://calm-hamlet-12139.herokuapp.com/'
+    //host: 'http://localhost:3000/'
   }
 })

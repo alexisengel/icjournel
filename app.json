@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/welcome/welcome",
+    "pages/survey/surveyList",
     "pages/tasks/tasks",
     "pages/profile/profile",
     "pages/logs/logs",
@@ -7,16 +9,13 @@
     "pages/Submissions/picture/picture",
     "pages/Submissions/video/video",
     "pages/Submissions/blog/blog",
-    "pages/test/test",
     "pages/profile/past/past",
     "pages/profile/compensation/compensation",
     "pages/more/intro/intro",
     "pages/more/about/about",
     "pages/more/faqs/faqs",
     "pages/more/contact/contact",
-    "pages/tasks/task/task",
-    "pages/survey/survey",
-    "pages/survey/surveyList"
+    "pages/survey/survey"
   ],
   "window": {
     "backgroundTextStyle": "dark",

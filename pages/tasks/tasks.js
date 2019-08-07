@@ -9,11 +9,6 @@ Page({
     
   },
 
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '/pages/tasks/task/task'
-    })
-  },
 
   moveTask: function(event) {
     console.log(event)
@@ -71,7 +66,7 @@ Page({
     const userId = dataG.userId;
     console.log(22, userId)
     wx.request({
-      url: `${host}tasks.json?user_id=${userId}`,
+      url: `${host}tasks.json?user_id=${userId}&type=now`,
       method: 'get',
       success(res) {
         console.log(res)

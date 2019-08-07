@@ -1,0 +1,10 @@
+/* pages/welcome/welcome.wxss */
+page {
+  background-color: #151515;
+}
+.im {
+  padding-top: 30vw;
+  width: 100vw;
+  height: 130vw;
+  float: center;
+}

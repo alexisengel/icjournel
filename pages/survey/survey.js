@@ -53,6 +53,9 @@ Page({
       method: 'post',
       data: addt
     })
+    wx.navigateBack({
+      
+    })
   },
 
 

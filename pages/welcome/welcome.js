@@ -1,7 +1,5 @@
-// pages/test/test.js
-var AV = require('/../../utils/av-weapp-min.js')
-
-
+// pages/welcome/welcome.js
+const app = getApp();
 Page({
 
   /**
@@ -11,24 +9,11 @@ Page({
 
   },
 
-
-  testFunct: function () {
-    var TestObject = AV.Object.extend('TestObject');
-    var testObject = new TestObject();
-    testObject.save({
-      words: 'Hello World!'
-    }).then(function (object) {
-      alert('LeanCloud Rocks!');
-    })
-  },
-
-  
-
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    
   },
 
   /**

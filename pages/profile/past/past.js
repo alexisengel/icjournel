@@ -1,4 +1,5 @@
 // pages/profile/past/past.js
+const app = getApp();
 Page({
 
   /**
@@ -12,6 +13,25 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const host = app.globalData.host;
+    const page = this;
+    console.log(Date.now());
+    const dataG = app.globalData;
+    console.log(dataG)
+    const userId = dataG.userId;
+    console.log(22, userId)
+    wx.request({
+      url: `${host}tasks.json?user_id=${userId}&type=past`,
+      method: 'get',
+      success(res) {
+        console.log(res)
+        console.log(this)
+        page.setData({
+          tasks: res.data
+        })
+      }
+    });
+    console.log("Tasks page has loaded");
 
   },
 

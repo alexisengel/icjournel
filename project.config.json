@@ -48,15 +48,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": -1,
 			"list": [
-				{
-					"id": -1,
-					"name": "Test page",
-					"pathName": "pages/test/test",
-					"query": "",
-					"scene": null
-				},
 				{
 					"id": 1,
 					"name": "Picture Load",
@@ -83,6 +76,13 @@
 					"name": "Surveys",
 					"pathName": "pages/survey/surveyList",
 					"query": "taskId=11",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "welcome",
+					"pathName": "pages/welcome/welcome",
+					"query": "",
 					"scene": null
 				}
 			]

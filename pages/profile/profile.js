@@ -7,20 +7,19 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  /**bindViewTap: function() {
+
+  toPast: function () {
     wx.navigateTo({
-      url: '/pages/test/test'
-    })
-  },*/
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '/pages/survey/survey'
+      url: '/pages/profile/past/past'
     })
   },
+  
+
   onLoad: function () {
     
   },
+
+ 
 
   onShow: function () {
     let page = this

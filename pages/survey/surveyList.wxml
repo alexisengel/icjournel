@@ -2,6 +2,9 @@
 <view class="container">
   <text>Available Surveys</text>
   <scroll-view class="surveys" wx:for="{{surveys}}" id="{{index}}">
-    <text bindtap="chooseSurvey" data-survey_id="{{item.id}}">{{item.name}}</text>
+    <button bindtap="chooseSurvey" data-survey_id="{{item.id}}">{{item.name}}</button>
   </scroll-view>
+  <view class="skip">
+    <button type="primary" bindtap="skip">Go to Tasks</button>
+  </view>
 </view>

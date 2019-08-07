@@ -1,2 +1,14 @@
 <!--pages/profile/past/past.wxml-->
-<text>pages/profile/past/past.wxml</text>
+<view class="container">
+  <text>Past Tasks</text>
+
+    <scroll-view class="tasks" wx:for="{{tasks}}" id="{{index}}">
+      <button bindtap="moveTask" id="{{index}}" data-taskId="{{item.id}}" data-comp="{{item.comp}}" data-name="{{item.name}}"> 
+      <text class="type">{{item.category}} </text>
+      <text class="task"> {{item.name}} </text>
+      <text class="comp"> {{item.comp}}元</text>
+      </button>
+    </scroll-view>
+
+  
+</view>
