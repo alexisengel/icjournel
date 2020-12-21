@@ -14,5 +14,4 @@ This data is then sent to the Inner Chapter database to then be processed and or
 
 ### Welcome Screen
 When the user opens the Mini Program, this is the welcome screen displayed while the app loads.
-![alt text](https://github.com/alexisengel/icjournel/weixinPics/welcome_page.png?raw=true)
-![alt_text](https://github.com/alexisengel/icjournel/blob/master/weixinPics/welcome_page.png?raw=true)
+![alt_text](https://github.com/alexisengel/icjournel/blob/master/weixinPics/welcome_page.png?raw=true =20x50)
