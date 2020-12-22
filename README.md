@@ -12,6 +12,14 @@ This data is then sent to the Inner Chapter database to then be processed and or
 
 ## Overview of Mini Program
 
-### Welcome Screen
-When the user opens the Mini Program, this is the welcome screen displayed while the app loads.
-![alt_text](https://github.com/alexisengel/icjournel/blob/master/weixinPics/welcome_page.png?raw=true =20x50)
+### Welcome Screen and Surveys
+When the user opens the Mini Program, this is the welcome screen displayed while the app loads. The user is then brought to the lists of surveys available. These survey answers determine the tags and segments of the users. These tags and segments help Inner Chapter hone in their target population for their marketing research.
+<img src="https://github.com/alexisengel/icjournel/blob/master/weixinPics/groupedPics/first.png?raw=true" alt="drawing" width="700"/>
+### Tasks and Submissions
+After the survey screen, the user is brought to the home page of the app: the task list. Tasks are assigned to users depending on their tags and segments and they involve various submission items like pictures, videos, and blog posts. Users are compensated accordingly depending on the task.
+<img src="https://github.com/alexisengel/icjournel/blob/master/weixinPics/groupedPics/second.png?raw=true" alt="drawing" width="700"/>
+### Other Parts
+The app also has a profile that keeps track of the completed tasks and total compensation. There is also a more tab where users can learn more about the app and the company in general.
+<img src="https://github.com/alexisengel/icjournel/blob/master/weixinPics/groupedPics/third.png?raw=true" alt="drawing" width="700"/>
+
+All of the submitions and user information is uploaded to the Inner Chapter Administration website, which was also created by me. To learn more, click on the link: [Inner Chapter Admin Website](https://github.com/alexisengel/innerchapter). 
